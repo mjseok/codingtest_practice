@@ -27,7 +27,7 @@ def solution(p):
     u=p[:balance(p)+1]
     if right(u):
         answer=solution(v)
-        answer+=u
+        answer=answer+u
     else:
         answer+='('
         answer+=solution(v)
