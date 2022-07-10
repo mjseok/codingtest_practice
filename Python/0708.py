@@ -13,7 +13,6 @@ for test in range(1,T+1):
             if arr[i][j]==0 or j==N-1:
                 if cnt==K:
                     answer+=1
-                    print([i,j])
                 cnt=0
         # 열
         for j in range(N):
@@ -22,7 +21,5 @@ for test in range(1,T+1):
             if arr[j][i]==0 or j==N-1:
                 if cnt==K:
                     answer+=1
-                    print([i,j])
-
                 cnt=0
     print(f'#{test} {answer}')
