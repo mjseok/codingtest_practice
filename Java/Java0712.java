@@ -1,7 +1,7 @@
 package Java;
 import java.util.*;
 
-public class Java0711 {
+public class Java0712 {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         int T=sc.nextInt();
