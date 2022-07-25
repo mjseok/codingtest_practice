@@ -52,5 +52,6 @@
 |0720|✔️|자바in,output암기|Java|
 |0721|✔️|백준 - 다리 놓기|Java|
 |0722|✔️|백준 - 약수|Java|
+|0725|✔️|SWEA- 1959.두 개의 숫자열(BufferedReader연습)|Java|
 
 
