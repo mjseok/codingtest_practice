@@ -1,0 +1,61 @@
+package practice;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main_16926 {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		String str = "";
+		str = in.readLine();
+		StringTokenizer st = new StringTokenizer(str, " ");
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int R = Integer.parseInt(st.nextToken());
+		int[][] arr = new int[N][M];
+		for (int i = 0; i < N; i++) {
+			str = in.readLine();
+			st = new StringTokenizer(str, " ");
+			for (int j = 0; j < M; j++) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+			}
+		}
+		int line = Math.min(N, M) / 2;
+		for (int r = 0; r < R; r++) {
+			for (int i = 0; i < line; i++) {
+				int tmp = arr[i][i];// 00,11,22,...
+				//x+1
+				for (int j = i+1; j <M-i; j++) {
+					arr[i][j-1]=arr[i][j];
+				}
+				//y+1
+				for (int j = i+1; j <N-i; j++) {
+					arr[j-1][M-i-1]=arr[j][M-i-1];
+				}
+				//x-1
+				for (int j =M - i - 2; j >= i; j--) {
+					arr[N-i-1][j+1]=arr[N-i-1][j];
+				}
+				//y-1
+				for (int j = N - i - 2; j >= i; j--) {
+					arr[j+1][i]=arr[j][i];
+				}
+				arr[i+1][i]=tmp;
+			}
+
+		}
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				sb.append(arr[i][j]).append(" ");
+
+			}
+			sb.append("\n");
+
+		}
+		System.out.println(sb);
+
+	}
+}
