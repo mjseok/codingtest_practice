@@ -24,28 +24,28 @@ public class Main_16926 {
 			}
 		}
 		int line = Math.min(N, M) / 2;
+		// 회전하는 수만큼 돌려
 		for (int r = 0; r < R; r++) {
 			for (int i = 0; i < line; i++) {
-				int tmp = arr[i][i];// 00,11,22,...
-				//x+1
-				for (int j = i+1; j <M-i; j++) {
-					arr[i][j-1]=arr[i][j];
+				int tmp = arr[i][i];
+				// x-1(위)
+				for (int j = i + 1; j <= M - i - 1; j++) {
+					arr[i][j - 1] = arr[i][j];
 				}
-				//y+1
-				for (int j = i+1; j <N-i; j++) {
-					arr[j-1][M-i-1]=arr[j][M-i-1];
+				// y-1(오른)
+				for (int j = i + 1; j <= N - 1 - i; j++) {
+					arr[j - 1][M - i - 1] = arr[j][M - 1 - i];
 				}
-				//x-1
-				for (int j =M - i - 2; j >= i; j--) {
-					arr[N-i-1][j+1]=arr[N-i-1][j];
+				//x+1(아래)
+				for (int j = M - 1 - i - 1; j >= i; j--) {
+					arr[N - i - 1][j + 1] = arr[N - i - 1][j];
 				}
-				//y-1
-				for (int j = N - i - 2; j >= i; j--) {
-					arr[j+1][i]=arr[j][i];
+				//y+1(왼)
+				for (int j = N - 1 - i - 1; j >= i; j--) {
+					arr[j + 1][i] = arr[j][i];
 				}
 				arr[i+1][i]=tmp;
 			}
-
 		}
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
